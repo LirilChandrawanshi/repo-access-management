@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Groups</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- Include Navbar -->
+<div th:replace="~{fragments/navbar.html}"></div>
+
+<div class="container mt-4">
+    <h2>Group List</h2>
+    <div th:if="${groups != null and not #lists.isEmpty(groups)}">
+        <div class="row">
+            <div th:each="group : ${groups}" class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${group.name}">Group Name</h5>
+                        <p class="card-text" th:text="${group.id}">Group Description</p>
+                        <a href="/repositories" class="btn btn-primary">View Repository</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
